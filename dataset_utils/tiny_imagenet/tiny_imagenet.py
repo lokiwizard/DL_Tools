@@ -5,7 +5,7 @@ from torchvision import transforms, datasets
 from typing import Tuple, List
 from PIL import Image
 
-BASE_DATA_DIR = "../tiny-imagenet-200/"  # 数据集存放路径，需要根据实际情况修改
+BASE_DATA_DIR = "your dataset path"  # 数据集存放路径，需要根据实际情况修改
 
 # 图像增强函数
 
