@@ -1,0 +1,23 @@
+model_name: 'mobilevitv1_xs'   # 模型名称
+training:
+  learning_rate: 0.001
+  num_epochs: 10
+  use_amp: True                # 是否使用混合精度训练，提高模型训练效率，能够使用更大的batch size
+  dynamic_loss_adjustment: True # 是否启用损失函数的动态调整
+  save_dir: './saved_models'   # 模型保存目录
+  pretrained: False            # 是否加载预训练模型
+  pretrained_model_path: './saved_models/model.pth'  # 预训练模型路径
+
+optimizer:
+  type: Adam                   # 优化器类型，可选：Adam、SGD、AdamW
+  weight_decay: 0.0001         # 权重衰减（L2正则化）
+  betas: [0.9, 0.999]          # Adam 优化器的 beta 参数
+  eps: 1e-08                   # Adam 优化器的 epsilon 值
+
+loss:
+  type: CrossEntropy
+
+scheduler:
+  type: CosineAnnealingLR      # 学习率调度器类型
+  T_max: 10                    # 对于 CosineAnnealingLR，为最大迭代周期（一般为总的 epoch 数）
+  eta_min: 0                   # 最小学习率，默认值为 0

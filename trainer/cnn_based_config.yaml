@@ -1,0 +1,22 @@
+model_name: 'resnet_18'   # 模型名称
+training:
+  learning_rate: 0.01
+  num_epochs: 10
+  use_amp: True                # 是否使用混合精度训练，提高模型训练效率，能够使用更大的batch size
+  dynamic_loss_adjustment: True # 是否启用损失函数的动态调整
+  save_dir: './saved_models'   # 模型保存目录
+  pretrained: False            # 是否加载预训练模型
+  pretrained_model_path: './saved_models/model.pth'  # 预训练模型路径
+
+optimizer:
+  type: SGD                   # 优化器类型，可选：Adam、SGD、AdamW
+  weight_decay: 0.0001         # 权重衰减（L2正则化）
+  momentum: 0.9                # 动量
+
+loss:
+  type: CrossEntropy
+
+scheduler:
+  type: StepLR                 # 学习率调整策略
+  step_size: 5                 # 学习率调整间隔
+  gamma: 0.1                   # 学习率调整倍数
