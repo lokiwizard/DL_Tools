@@ -250,3 +250,18 @@ class Trainer:
         save_path = os.path.join(self.save_dir, f"{self.model_name}_best_checkpoint.pth")
         torch.save(self.best_model_wts, save_path)
         print(f"Best model saved to {save_path}")
+
+"""
+usage:
+def main():
+    train_loader, val_loader, num_classes = get_animal_data_loader(root_dir=r'dataset_dir',
+                                                                  batch_size=128,
+                                                                 image_size=224)
+
+    model = resnet18(num_classes=num_classes)
+
+    trainer = Trainer(model, train_loader, val_loader, config_path=r"config.yaml")
+
+    trainer.train()
+
+"""
