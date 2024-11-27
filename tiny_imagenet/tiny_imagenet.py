@@ -122,7 +122,7 @@ def get_tiny_imagenet_loaders(root_dir, image_size=64, batch_size=128, num_worke
                             shuffle=False,
                             num_workers=num_workers,
                             pin_memory=True)
-
-    return train_loader, val_loader
+    num_classes = len(train_dataset.classes)
+    return train_loader, val_loader, num_classes
 
 
